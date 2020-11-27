@@ -1,0 +1,23 @@
+#top
+{
+    border-style: solid;
+    border-width: 6px;
+    border-color: blue;
+    width: 50%;
+    margin-left: 350px;
+    background-color: rgb(18, 214, 18);
+    
+    padding-left: 25em;
+}
+#bottom{
+    border-style: solid;
+    border-width: 6px;
+    border-color: blue;
+    width: 50%;
+    margin-top: 500px;
+    margin-left: 350px;
+}
+
+h1{
+    font-family: 'Goldman', cursive;
+}

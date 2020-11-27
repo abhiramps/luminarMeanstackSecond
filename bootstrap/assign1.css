@@ -1,0 +1,37 @@
+h1{
+    color: rgba(13, 89, 231, 0.788);
+    font-size: 50px;
+    margin-top: 200px;
+    margin-left: 150px;
+}
+h3{ 
+    font-style: bold;
+    font-size: 25px;
+    margin-top: -21px;
+    margin-left: 152px;
+}
+
+
+body{
+    background-color: rgb(241, 241, 248);
+
+}
+
+#form{
+    margin-left: 800px;
+    margin-top: -81px;
+    height: 279px;
+    width: 387px;
+    background-color: white;
+}
+
+
+#email{
+    margin-top: 115px;
+    margin-left: -150px;
+    
+}
+#pass{
+    margin-top: 1px;
+    margin-left: -150px;
+}
