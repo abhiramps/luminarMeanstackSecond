@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //establish a connection to the server
+        //send http requert to server.it contains 2 parameters
+        //1)method-what type of method is used 
+        //2)url/api-where to connect
+
+
+        var xhr=new XMLHttpRequest();//its an objest used to intract with servers.by using this we can intarct with server
+
+        xhr.open("get","https://jsonplaceholder.typicode.com/posts");//to establishing a conn
+        xhr.send()//to send request
+        xhr.onreadystatechange=()=>{    //The onreadystatechange property defines a function to be executed when the readyState changes.
+                                        //The onreadystatechange function is called every time the readyState changes. 
+            if(xhr.readyState==4){      //when value is 4 , successfully connected to server
+                 
+                if(xhr.status>=200 & xhr.status<300){ //2 series//which means task is completed
+                    console.log("success"+xhr.status)
+                    console.log(xhr.responseText)           //that contains the response to the request as text, 
+                                                      //or null if the request was unsuccessful or has not yet been sent.
+
+                    
+                }
+                else{
+                    alert("not success"+xhr.status)
+
+                }
+                alert("task completed")
+            }
+
+            
+            
+        }
+
+
+    </script>
+</body>
+</html>

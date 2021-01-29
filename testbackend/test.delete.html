@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <h1> create your post</h1>
+            </div>
+            <div class="col-4"></div>
+        </div>
+
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-4"></div>
+            <div class="col-4">
+
+
+
+                <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">id</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="pid">
+                    </div>
+                </div>
+
+                <div style="margin-left: 35%;">
+                    <button class="btn btn-primary" onclick="deletepost()" type="button">delete post</button>
+                </div>
+
+
+            </div>
+            <div class="col-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">userid</th>
+                            <th scope="col">id</th>
+                            <th scope="col">title</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody id="result">
+
+                    </tbody>
+
+
+                </table>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+    </div>
+
+
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+    var url = ""
+    function deletepost() {
+
+        var pid = document.querySelector("#pid").value;
+        url = "https://jsonplaceholder.typicode.com/posts/" + pid;
+        fetchpost(url)
+
+    }
+
+
+
+
+
+    function fetchpost(url) {
+        // alert(url)
+        xhr.open("delete", url)
+        xhr.send()
+    }
+
+
+
+
+
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {
+            if ((xhr.status >= 200) & (xhr.status < 300)) {
+                alert("your post deleted")
+                console.log("success")
+                console.log(xhr.status)
+                // alert(xhr.responseText)//fetch data
+                var post = JSON.parse(xhr.responseText)
+                console.log(post)//it is in object format //post.id to fetch the id
+
+                //these statements will set the values to null
+                var a = post.userId
+                var b = post.id
+                var c = post.title
+                //console.log(a+b+c)
+                if (a == null) {
+                    a = "null"
+                    if (b == null) {
+                        b = "null"
+
+                        if (c == null) {
+                            c = "null"
+                        }
+                    }
+                }
+
+
+
+                var html_data = ""
+                html_data = html_data + "<tr> <td>" + a + "</td> <td>" + b + "</td> <td>" + c + "</td></tr>"
+                document.querySelector("#result").innerHTML = html_data
+            }
+            else {
+                console.log(xhr.status)
+
+            }
+            console.log("task complete")
+        }
+    }
+
+
+
+</script>
+
+</html>

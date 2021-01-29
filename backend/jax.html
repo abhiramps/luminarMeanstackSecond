@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xhr = new XMLHttpRequest(); //are used to interact with servers.ou can retrieve data from a URL 
+
+        //open() we have to 2 parameters// conn establish
+        //method - get
+        //api/url to connect -https://jsonplaceholder.typicode.com/posts
+
+        xhr.open("get", "https://jsonplaceholder.typicode.com/posts")
+
+        xhr.send()
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {
+                if ((xhr.status >= 200) & (xhr.status < 300)) {
+                    console.log("success")
+                    console.log(xhr.status)
+                    alert(xhr.responseText)//fetch data
+                }
+                else {
+                    console.log(xhr.status)
+
+                }
+                console.log("task complete")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
